@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Allocation</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/conceptual-search-with-wooden-blocks-magnifying-glass-side-view_176474-10533.jpg?size=626&ext=jpg'); /* Set the background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent repetition */
+            background-position: center; /* Center the image */
+            font-family: 'Arial', sans-serif;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background for readability */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333; /* Dark text color */
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #555; /* Darker color for labels */
+        }
+        select, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #4CAF50; /* Green border color */
+            border-radius: 6px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+            transition: border-color 0.3s ease; /* Animation for focus */
+        }
+        select:focus, input[type="text"]:focus {
+            border-color: #45a049; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            cursor: pointer;
+            font-size: 16px; /* Increased font size */
+            transition: background-color 0.3s ease; /* Animation effect */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+
+    <script>
+        function updatePlaceholder() {
+            var userType = document.getElementById('user_type').value;
+            var inputField = document.getElementById('reg_no_or_id');
+
+            if (userType === 'student') {
+                inputField.placeholder = 'Enter Student Registration Number';
+            } else {
+                inputField.placeholder = 'Enter Teacher Name or ID';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Your Allocation</h1>
+        <form action="/search_allocation" method="POST">
+            <label>Are you a Student or Teacher?</label>
+            <select id="user_type" name="user_type" onchange="updatePlaceholder()" required>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+            <label id="label_input">Enter Registration Number or Teacher Name:</label>
+            <input type="text" id="reg_no_or_id" name="reg_no_or_id" placeholder="Enter Registration Number" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation Results</title>
+</head>
+<body>
+    <h1>Exam Hall Allocation Results</h1>
+
+    <table border="1">
+        <tr>
+            <th>Registration Number</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Classroom</th>
+            <th>Bench Number</th>
+        </tr>
+        {% for allocation in allocations %}
+        <tr>
+            <td>{{ allocation.reg_no }}</td>
+            <td>{{ allocation.name }}</td>
+            <td>{{ allocation.subject }}</td>
+            <td>{{ allocation.classroom }}</td>
+            <td>{{ allocation.bench_no }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('download_results') }}">Download Results as Excel</a>
+</body>
+</html>

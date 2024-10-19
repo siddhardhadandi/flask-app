@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white; /* Change background to white */
+            color: black; /* Change text color to black for better contrast */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for better readability */
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+        table {
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #ccc;
+        }
+        /* Alternate row colors */
+        tbody tr:nth-child(odd) {
+            background-color: #f2f2f2; /* Light gray for odd rows */
+        }
+        tbody tr:nth-child(even) {
+            background-color: #e0e0e0; /* Slightly darker gray for even rows */
+        }
+        /* Hover effect for download button */
+        .btn-success {
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Allocation Results</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Classroom</th>
+                    <th>Bench Number</th>
+                    <th>Reg No</th>
+                    <th>Student Name</th>
+                    <th>Subject</th>
+                    <th>Year of Study</th>
+                    <th>Teacher Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in allocated_data %}
+                <tr>
+                    <td>{{ entry['Classroom'] }}</td>
+                    <td>{{ entry['Bench Number'] }}</td>
+                    <td>{{ entry['Reg No'] }}</td>
+                    <td>{{ entry['Student Name'] }}</td>
+                    <td>{{ entry['Subject'] }}</td>
+                    <td>{{ entry['Year of Study'] }}</td>
+                    <td>{{ entry['Teacher Name'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Button to download the Excel file -->
+        <div class="text-center">
+            <a href="{{ download_link }}" class="btn btn-success btn-lg">Download Allocation Results</a>
+
+            <!-- New button to open the search page in a new tab -->
+            <a href="{{ url_for('open_search_page') }}" target="_blank" class="btn btn-info btn-lg">Search Your Allocation</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Exam Hall Allocation System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Hall Allocation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://t4.ftcdn.net/jpg/08/22/13/35/360_F_822133572_JnjUfJk6QTgMf7fXGU5d4pLuxonGYRZ5.jpg'); /* Background image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .upload-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block; /* Ensure labels appear above the inputs */
+        }
+        input[type="file"] {
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #3f51b5;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Hall Allocation System</h1>
+        <div class="upload-container">
+            <h2>Upload Files</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="classrooms">Upload Classroom Details (Excel file)</label>
+                <input type="file" name="classrooms" accept=".xlsx, .xls" required>
+                
+                <label for="teachers">Upload Teacher Details (Excel file)</label>
+                <input type="file" name="teachers" accept=".xlsx, .xls" required>
+                
+                <label for="students">Upload Student Details (Excel file)</label>
+                <input type="file" name="students" accept=".xlsx, .xls" required>
+                
+                <input type="submit" value="Upload and Allocate">
+            </form>
+        </div>
+        <div class="message">
+            <!-- This section can display any messages (optional) -->
+        </div>
+    </div>
+</body>
+</html>

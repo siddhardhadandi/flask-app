@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Classroom</th>
+                        <th>Bench Number</th>
+                        <th>Reg No</th>
+                        <th>Student Name</th>
+                        <th>Subject</th>
+                        <th>Year of Study</th>
+                        <th>Teacher Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in allocated_data %}
+                    <tr>
+                        <td>{{ entry['Classroom'] }}</td>
+                        <td>{{ entry['Bench Number'] }}</td>
+                        <td>{{ entry['Reg No'] }}</td>
+                        <td>{{ entry['Student Name'] }}</td>
+                        <td>{{ entry['Subject'] }}</td>
+                        <td>{{ entry['Year of Study'] }}</td>
+                        <td>{{ entry['Teacher Name'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>
